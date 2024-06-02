@@ -1,0 +1,31 @@
+{%extends 'core/base.html'%}
+{% block title %} 
+My account
+{% endblock %}
+{% block content %}
+<h1 class="text-2xl"><strong>My Account</strong></h1>
+
+
+
+{% if request.user.is_authenticated %}
+<p class="mt-4"></p>
+<a href="{% url 'logout' %}" class="py-2 px-4 bg-red-800 text-white rounded-xl hover:bg-red-900">Log Out</a>
+<p class="mt-4"></p>
+<hr>
+{% if user.username == 'dharsana' or user.username == 'Balaji'  %}
+<strong class="text-2xl">Your Store:</strong>
+<p class="mt-6"></p>
+<a href="{% url 'my_store' %}" class="py-2 px-4 bg-pink-800 text-white rounded-xl hover:bg-pink-900">My Store</a>
+<script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"2edd86d87c639a6cfac79fa6ad1665c75","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+</script>
+{%endif%}
+{%endif%}
+{% endblock %}

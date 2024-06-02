@@ -1,0 +1,15 @@
+{%extends 'core/base.html'%}
+{% block title %} 
+Login
+{% endblock %}
+{% block content %}
+<h1 class="text-2xl text-pink-500">Login</h1>
+<form method="post" action=".">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button class="mt-4 py-4 px-8 bg-pink-600 text-white rounded-xl hover:bg-pink-900">Login</button>
+</form>
+<h2 class="mt-4 text-xl text-pink-500">If You Don't Have an Account Sign Up</h2>
+<p class="mt-6"></p>
+<a href="{% url 'signup' %}" class="py-4 px-8 bg-pink-600 text-white rounded-xl hover:bg-pink-900">SignUp</a>
+{% endblock %}
